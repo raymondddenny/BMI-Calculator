@@ -18,209 +18,212 @@ class AboutPage extends StatefulWidget {
 class _AboutPageState extends State<AboutPage> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        leading: RoundedPrimaryIconButton(
-          childIcon: IconButton(
-              icon: Icon(
-                Icons.arrow_back_ios,
-              ),
-              onPressed: () {
-                Navigator.pop(context);
-              }),
-        ),
-        title: Text("ABOUT APP"),
-        centerTitle: true,
-      ),
-      body: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          // BMI results
-          Row(
-            children: [
-              Container(
-                height: 140,
-                width: MediaQuery.of(context).size.width,
-                child: ReusableCard(
-                  color: kDeactivateCardColor,
-                  cardChild: Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.spaceAround,
-                      children: [
-                        Text(
-                          "BMI Calculator App",
-                          style: GoogleFonts.poppins(
-                            fontSize: 28,
-                            color: kTextBoldColor,
-                          ),
-                        ),
-                        Text(
-                          "Version 1.0",
-                          style: GoogleFonts.poppins(
-                            fontSize: 18,
-                            color: kTextBoldColor,
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
+    return SafeArea(
+      child: Scaffold(
+        appBar: AppBar(
+          leading: RoundedPrimaryIconButton(
+            childIcon: IconButton(
+                icon: Icon(
+                  Icons.arrow_back_ios,
                 ),
-              ),
-            ],
+                onPressed: () {
+                  Navigator.pop(context);
+                }),
           ),
-          // BMI Info
-          Column(
-            children: [
-              Container(
-                width: MediaQuery.of(context).size.width,
-                height: MediaQuery.of(context).size.height * 0.25,
-                child: ReusableCard(
-                  color: kDeactivateCardColor,
-                  cardChild: Padding(
-                    padding: const EdgeInsets.all(15.0),
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                      children: [
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            Text(
-                              "Design Inspiration =>",
-                              style: GoogleFonts.poppins(
-                                fontSize: 18,
-                              ),
+          title: Text("ABOUT APP"),
+          centerTitle: true,
+        ),
+        body: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            // BMI results
+            Row(
+              children: [
+                Container(
+                  height: 140,
+                  width: MediaQuery.of(context).size.width,
+                  child: ReusableCard(
+                    color: kDeactivateCardColor,
+                    cardChild: Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.spaceAround,
+                        children: [
+                          Text(
+                            "BMI Calculator App",
+                            style: GoogleFonts.poppins(
+                              fontSize: 28,
+                              color: kTextBoldColor,
                             ),
-                            GestureDetector(
-                              onTap: () {
-                                setState(() {
-                                  Navigator.push(
-                                    context,
-                                    MaterialPageRoute(
-                                      builder: (context) => DesignInspiration(),
-                                    ),
-                                  );
-                                });
-                              },
-                              child: Container(
-                                width: 100,
-                                child: Center(
-                                  child: Text(
-                                    "Tap here",
-                                    style: GoogleFonts.poppins(
-                                        fontSize: 18,
-                                        color: kTextColorActivated,
-                                        fontWeight: FontWeight.bold),
-                                  ),
-                                ),
-                                decoration: BoxDecoration(
-                                    color: kActiveCardColor,
-                                    borderRadius: BorderRadius.circular(20),
-                                    boxShadow: [
-                                      BoxShadow(
-                                          color: Colors.grey[500],
-                                          offset: Offset(4.0, 4.0),
-                                          blurRadius: 10.0,
-                                          spreadRadius: 1.0),
-                                      BoxShadow(
-                                          color: Colors.white,
-                                          offset: Offset(-4, -4),
-                                          blurRadius: 15,
-                                          spreadRadius: 1.0)
-                                    ]),
-                              ),
+                          ),
+                          Text(
+                            "Version 1.0",
+                            style: GoogleFonts.poppins(
+                              fontSize: 18,
+                              color: kTextBoldColor,
                             ),
-                          ],
-                        ),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            Text(
-                              "Developer =>",
-                              style: GoogleFonts.poppins(
-                                fontSize: 18,
-                              ),
-                            ),
-                            Row(
-                              children: [
-                                Container(
-                                  decoration: BoxDecoration(
-                                      color: kDeactivateCardColor,
-                                      borderRadius: BorderRadius.circular(20),
-                                      boxShadow: [
-                                        BoxShadow(
-                                            color: Colors.grey[500],
-                                            offset: Offset(4.0, 4.0),
-                                            blurRadius: 15.0,
-                                            spreadRadius: 1.0),
-                                        BoxShadow(
-                                            color: Colors.white,
-                                            offset: Offset(-4, -4),
-                                            blurRadius: 15,
-                                            spreadRadius: 1.0)
-                                      ]),
-                                  child: IconButton(
-                                      icon: Icon(FontAwesomeIcons.instagram),
-                                      onPressed: _launchURL),
-                                ),
-                                SizedBox(
-                                  width: 8,
-                                ),
-                                Container(
-                                  decoration: BoxDecoration(
-                                      color: kDeactivateCardColor,
-                                      borderRadius: BorderRadius.circular(20),
-                                      boxShadow: [
-                                        BoxShadow(
-                                            color: Colors.grey[350],
-                                            offset: Offset(4.0, 4.0),
-                                            blurRadius: 15.0,
-                                            spreadRadius: 1.0),
-                                        BoxShadow(
-                                            color: Colors.white,
-                                            offset: Offset(-4, -4),
-                                            blurRadius: 15,
-                                            spreadRadius: 1.0)
-                                      ]),
-                                  child: IconButton(
-                                      icon: Icon(FontAwesomeIcons.linkedinIn),
-                                      onPressed: _launchURLLinkedin),
-                                ),
-                                SizedBox(
-                                  width: 8,
-                                ),
-                                Container(
-                                  decoration: BoxDecoration(
-                                      color: kDeactivateCardColor,
-                                      borderRadius: BorderRadius.circular(20),
-                                      boxShadow: [
-                                        BoxShadow(
-                                            color: Colors.grey[500],
-                                            offset: Offset(4.0, 4.0),
-                                            blurRadius: 15.0,
-                                            spreadRadius: 1.0),
-                                        BoxShadow(
-                                            color: Colors.white,
-                                            offset: Offset(-4, -4),
-                                            blurRadius: 15,
-                                            spreadRadius: 1.0)
-                                      ]),
-                                  child: IconButton(
-                                      icon: Icon(FontAwesomeIcons.github),
-                                      onPressed: _launchURLGithub),
-                                ),
-                              ],
-                            )
-                          ],
-                        ),
-                      ],
+                          ),
+                        ],
+                      ),
                     ),
                   ),
                 ),
-              ),
-            ],
-          )
-        ],
+              ],
+            ),
+            // BMI Info
+            Column(
+              children: [
+                Container(
+                  width: MediaQuery.of(context).size.width,
+                  height: MediaQuery.of(context).size.height * 0.25,
+                  child: ReusableCard(
+                    color: kDeactivateCardColor,
+                    cardChild: Padding(
+                      padding: const EdgeInsets.all(15.0),
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                        children: [
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Text(
+                                "Design Inspiration =>",
+                                style: GoogleFonts.poppins(
+                                  fontSize: 18,
+                                ),
+                              ),
+                              GestureDetector(
+                                onTap: () {
+                                  setState(() {
+                                    Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                        builder: (context) =>
+                                            DesignInspiration(),
+                                      ),
+                                    );
+                                  });
+                                },
+                                child: Container(
+                                  width: 100,
+                                  child: Center(
+                                    child: Text(
+                                      "Tap here",
+                                      style: GoogleFonts.poppins(
+                                          fontSize: 18,
+                                          color: kTextColorActivated,
+                                          fontWeight: FontWeight.bold),
+                                    ),
+                                  ),
+                                  decoration: BoxDecoration(
+                                      color: kActiveCardColor,
+                                      borderRadius: BorderRadius.circular(20),
+                                      boxShadow: [
+                                        BoxShadow(
+                                            color: Colors.grey[500],
+                                            offset: Offset(4.0, 4.0),
+                                            blurRadius: 10.0,
+                                            spreadRadius: 1.0),
+                                        BoxShadow(
+                                            color: Colors.white,
+                                            offset: Offset(-4, -4),
+                                            blurRadius: 15,
+                                            spreadRadius: 1.0)
+                                      ]),
+                                ),
+                              ),
+                            ],
+                          ),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Text(
+                                "Developer =>",
+                                style: GoogleFonts.poppins(
+                                  fontSize: 18,
+                                ),
+                              ),
+                              Row(
+                                children: [
+                                  Container(
+                                    decoration: BoxDecoration(
+                                        color: kDeactivateCardColor,
+                                        borderRadius: BorderRadius.circular(20),
+                                        boxShadow: [
+                                          BoxShadow(
+                                              color: Colors.grey[500],
+                                              offset: Offset(4.0, 4.0),
+                                              blurRadius: 15.0,
+                                              spreadRadius: 1.0),
+                                          BoxShadow(
+                                              color: Colors.white,
+                                              offset: Offset(-4, -4),
+                                              blurRadius: 15,
+                                              spreadRadius: 1.0)
+                                        ]),
+                                    child: IconButton(
+                                        icon: Icon(FontAwesomeIcons.instagram),
+                                        onPressed: _launchURL),
+                                  ),
+                                  SizedBox(
+                                    width: 8,
+                                  ),
+                                  Container(
+                                    decoration: BoxDecoration(
+                                        color: kDeactivateCardColor,
+                                        borderRadius: BorderRadius.circular(20),
+                                        boxShadow: [
+                                          BoxShadow(
+                                              color: Colors.grey[350],
+                                              offset: Offset(4.0, 4.0),
+                                              blurRadius: 15.0,
+                                              spreadRadius: 1.0),
+                                          BoxShadow(
+                                              color: Colors.white,
+                                              offset: Offset(-4, -4),
+                                              blurRadius: 15,
+                                              spreadRadius: 1.0)
+                                        ]),
+                                    child: IconButton(
+                                        icon: Icon(FontAwesomeIcons.linkedinIn),
+                                        onPressed: _launchURLLinkedin),
+                                  ),
+                                  SizedBox(
+                                    width: 8,
+                                  ),
+                                  Container(
+                                    decoration: BoxDecoration(
+                                        color: kDeactivateCardColor,
+                                        borderRadius: BorderRadius.circular(20),
+                                        boxShadow: [
+                                          BoxShadow(
+                                              color: Colors.grey[500],
+                                              offset: Offset(4.0, 4.0),
+                                              blurRadius: 15.0,
+                                              spreadRadius: 1.0),
+                                          BoxShadow(
+                                              color: Colors.white,
+                                              offset: Offset(-4, -4),
+                                              blurRadius: 15,
+                                              spreadRadius: 1.0)
+                                        ]),
+                                    child: IconButton(
+                                        icon: Icon(FontAwesomeIcons.github),
+                                        onPressed: _launchURLGithub),
+                                  ),
+                                ],
+                              )
+                            ],
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                ),
+              ],
+            )
+          ],
+        ),
       ),
     );
   }

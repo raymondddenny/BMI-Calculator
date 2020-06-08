@@ -8,29 +8,31 @@ void main() => runApp(BMICalculator());
 class BMICalculator extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      home: InputPage(),
-      // initialRoute: InputPage.keyId,
-      routes: {
-        InputPage.keyId: (context) => InputPage(),
-        // ResultPage.keyId: (context) => ResultPage(),
-        // BMIInfoPage.keyId: (context) => BMIInfoPage(),
-      },
-      theme: ThemeData(
-          accentColor: kTextColorDeactivated,
-          primaryIconTheme: IconThemeData(
-            color: kTextColorDeactivated,
-          ),
-          primaryColor: kDeactivateCardColor,
-          scaffoldBackgroundColor: kDeactivateCardColor,
-          appBarTheme: AppBarTheme(
-            textTheme: TextTheme(
-                headline6: GoogleFonts.muli(
-                    fontSize: 18,
-                    color: kTextColorDeactivated,
-                    fontWeight: FontWeight.w900)),
-          )),
+    return SafeArea(
+      child: MaterialApp(
+        debugShowCheckedModeBanner: false,
+        home: InputPage(),
+        // initialRoute: InputPage.keyId,
+        routes: {
+          InputPage.keyId: (context) => InputPage(),
+          // ResultPage.keyId: (context) => ResultPage(),
+          // BMIInfoPage.keyId: (context) => BMIInfoPage(),
+        },
+        theme: ThemeData(
+            accentColor: kTextColorDeactivated,
+            primaryIconTheme: IconThemeData(
+              color: kTextColorDeactivated,
+            ),
+            primaryColor: kDeactivateCardColor,
+            scaffoldBackgroundColor: kDeactivateCardColor,
+            appBarTheme: AppBarTheme(
+              textTheme: TextTheme(
+                  headline6: GoogleFonts.muli(
+                      fontSize: 18,
+                      color: kTextColorDeactivated,
+                      fontWeight: FontWeight.w900)),
+            )),
+      ),
     );
   }
 }
